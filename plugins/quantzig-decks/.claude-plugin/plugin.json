@@ -1,0 +1,6 @@
+{
+  "name": "quantzig-decks",
+  "version": "0.4.0",
+  "description": "One Quantzig deck skill (qz-decks): routes any deck request to the right storyline, builds on the real Quantzig master in Grandview and brand colours, places visuals from a 330-slide library, and checks density, variety, fonts and colours slide by slide.",
+  "author": { "name": "Sidhu Suresh" }
+}
