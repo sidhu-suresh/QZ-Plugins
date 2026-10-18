@@ -1,0 +1,8 @@
+{
+  "name": "lovable-audit",
+  "version": "0.1.0",
+  "description": "A parallel audit team for deployed Lovable apps. A capture agent drives the browser for page text, layout geometry and screenshots while the app profile is still being read, then five lens specialists run at once (visual defects, data consistency, story and flow, scope alignment, source hygiene) plus an optional read-only security lens. Findings are merged, identified, split across sharded adversarial verifiers that try to disprove each one, and turned into one paste-ready prompt per issue, with the QA pass fanned out one verifier per fix. Keeps a requirements profile per app so later rounds remember the brief, the story and the constraints.",
+  "author": {
+    "name": "Sidhu Suresh"
+  }
+}
