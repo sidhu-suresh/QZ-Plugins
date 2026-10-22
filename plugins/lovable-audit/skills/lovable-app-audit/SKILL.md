@@ -7,7 +7,7 @@ description: Run a parallel team audit of a deployed Lovable app and return find
 
 This is the playbook. It exists so the team can be run two ways: by spawning `lovable-audit-lead`, or, if the lead cannot spawn its own specialists, by dispatching the team from the session you are already in. Use this file when you are the caller rather than the lead.
 
-The audit carries no baked-in knowledge of any particular app. Everything app-specific comes from the app's profile file.
+The audit carries no baked-in knowledge of any particular app. Everything app-specific comes from the app's profile file. Read `references/dashboard-quality.md` alongside `references/lovable-behaviour.md`. The dashboard reference separates configurable design choices from required quality checks. Judge options against the profile, never impose optional features by default.
 
 ## The team
 
@@ -42,11 +42,11 @@ Step 0 is the profile and Step 1 is capture, and they run together.
 
 **Profile.** Find it in this order: the app repository at `audit/app-profile.md`, a connected working folder at `lovable-audit/<app-slug>/profile.md`, then the session outputs folder at the same relative path. If one exists, read it and treat it as the working memory for that app. If none exists, check with the user before creating one, because a profile in a folder you cannot see holds the must have register and the old versus new flags. Build a fresh one only once you are sure none exists. If only a URL was given and no brief, ask for the scope in one short block: what the app is for, who reads it, which pages must exist, what is deliberately out, what must not change, and where the requirement source lives. Mark the register pending until confirmed.
 
-**Capture.** Send `lovable-audit-capture` out straight away with the live URL, the routes, the widths, a run id and an evidence folder, sharded by route group and dispatched in one message. Give it credentials and roles only when the app has a login and the profile already holds them, and never put a credential into a brief that leaves the machine or into a prompt.
+**Capture.** Send `lovable-audit-capture` out straight away with the live URL, the routes, the widths, a run id and an evidence folder, sharded by route group and dispatched in one message. Give it credentials only when the app has a login and the profile already holds them. Test persona or audience modes even without authentication. Never put a credential in a brief that leaves the machine or in a prompt.
 
 Widths are 1440, 1280, 1024, 768 and 375. Capture writes its output under `audit/evidence/<run-id>/` as text, geometry, console and network files that survive the session, plus screenshots that land as session bound paths recorded in the manifest.
 
-**Evidence pack.** Assemble what the team gets: the profile path plus the verbatim Constraints, Scope and Known issues sections, since the specialists judge against those and cannot open a file you merely described. The app slug, the live URL, the route list, the requirement source paths, the export path if there is one, the capture folder and manifest with its stable labels, the widths and roles captured and those missed, which artifact is newest and when, and the list of things nobody could reach.
+**Evidence pack.** Assemble what the team gets: the profile path plus the verbatim Dashboard configuration, Constraints, Scope and Known issues sections, since the specialists judge against those and cannot open a file you merely described. The app slug, the live URL, the route list, the requirement source paths, the export path if there is one, the capture folder and manifest with its stable labels, the widths and roles captured and those missed, which artifact is newest and when, and the list of things nobody could reach.
 
 Two rules go in every brief. A fetched page shell is not evidence of what a screen shows, and never evidence that a screen is missing. And nobody asserts on a screen they did not reach, which includes a route the capture failed on.
 
@@ -63,6 +63,10 @@ A specialist returns findings, or one line saying its lens is clean. Those diffe
 **QA pass, fanned out.** Send the fix list and the new evidence back to the verifier, stamped with the run it belongs to, split so one instance owns one fix. Each re tests its own fix on the same screen as before, then hunts for what it broke on other routes, other widths, the other theme and the components that share the code that changed. Run a separate sweep instance over the shared components and the widths whose only job is regressions. Regressions go at the top of the report.
 
 **Update the profile.** Iteration log entry, corrected lines, updated issue statuses.
+
+## Dashboard quality coverage
+
+For dashboard/analytics apps, check the applicable items in `references/dashboard-quality.md`. Capture and report the configured choices separately from defects. Required checks include user-facing punctuation and copy cleanup, untrimmed text, card density/clipping, functional sorting on every table, working/cascading filters, data reconciliation, chart behavior, state/error handling, responsive behavior and accessibility. Track each item as pass, fix required, not applicable or not verified. Do not call missing evidence a pass. Include only relevant checks in each prompt's QA checklist; retain full coverage in the round checklist.
 
 ## Severity
 
@@ -121,7 +125,7 @@ Four conditions, named at the end with the outstanding ones called out: every pr
 
 ## What the team cannot reach
 
-Capture closes most of the gap, but not all of it. A live single page app can be walked, resized and screenshotted, so layout, text, order, geometry and reachability are all fair game. What nobody can do is judge a motion that was captured midway, drive a real keyboard, use a screen reader, or reach a screen behind a login nobody supplied credentials for. Ask for the credentials or a pass for those, and name what stayed out of reach rather than implying it was fine. Where the capture failed on a route, that route is unverified, not clean.
+Capture closes most of the gap, but not all of it. A live single page app can be walked, resized and screenshotted, so layout, text, order, geometry and reachability are all fair game. A physical keyboard and full screen-reader assessment are outside this capture. Where browser key events are available, capture keyboard navigation, focus visibility, dialog focus behavior and accessible names on main routes. A login screen or route behind credentials nobody supplied remains inaccessible. Ask for the credentials or a pass for those, and name what stayed out of reach rather than implying it was fine. Where the capture failed on a route, that route is unverified, not clean.
 
 ## The profile
 
@@ -139,7 +143,7 @@ One markdown file per app, written by the team and owned by the user. A skeleton
 
 **Architecture.** Routes and purpose, the shared components that matter, where data comes from, the role and permission model, whether state persists.
 
-**Access and roles.** Whether there is a login, the roles, where test credentials are kept, and what each role may do. The role and the location, never the value. If there is no login, the role pass is skipped.
+**Access and roles.** Whether there is a login, the roles, where test credentials are kept, and what each role may do. The role and the location, never the value. Without login, skip credentialed sign-in only. Test persona-specific views and actions when personas or audience modes exist.
 
 **Capture.** The routes captured, the widths, the evidence folder, and which artifact is newest.
 

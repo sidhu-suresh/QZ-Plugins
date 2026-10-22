@@ -1,6 +1,8 @@
 {
   "name": "quantzig-plugins",
-  "owner": { "name": "Sidhu Suresh" },
+  "owner": {
+    "name": "Sidhu Suresh"
+  },
   "plugins": [
     {
       "name": "quantzig-decks",
@@ -11,8 +13,8 @@
     {
       "name": "lovable-audit",
       "source": "./plugins/lovable-audit",
-      "description": "Parallel audit team for a deployed Lovable app: browser capture, five lens specialists plus an optional read-only security lens, sharded adversarial verification, and one paste-ready prompt per issue.",
-      "version": "0.1.0"
+      "description": "Parallel Lovable app audit with browser capture, configurable dashboard profiles, required quality checks, sharded verification, and focused fix prompts.",
+      "version": "0.2.0"
     }
   ]
 }

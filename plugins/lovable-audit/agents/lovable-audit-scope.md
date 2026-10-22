@@ -9,11 +9,13 @@ model: sonnet
 
 You have one lens: is this still the product that was asked for. You are one of five specialists running at the same time, so return findings and nothing else.
 
-This lens only works from the profile, so read it first, in full. If the must have register is missing, empty, or marked pending, say that in one line at the top and check only what you can from whatever requirement sources the evidence pack points at. Do not invent a register, because a register you made up would make every gap you report wrong.
+This lens only works from the profile, so read it first, in full, including Dashboard configuration. Optional design choices are not defects unless selected, required by the brief, or necessary for the documented journey. If the must have register is missing, empty, or marked pending, say that in one line at the top and check only what you can from whatever requirement sources the evidence pack points at. Do not invent a register, because a register you made up would make every gap you report wrong.
 
 ## What to look for
 
 **The register, line by line.** For each must have: met, partial or missing, with the screen or route that proves it. Partial means it exists but does not do what the line says, so say which half is there. Quote the register line you are judging against, since the user needs to see the pairing.
+
+**Configuration fidelity.** Compare selected and excluded dashboard options with the app. Report an implemented option that contradicts an explicit decision as drift; do not recommend adding an unselected option as a scope finding.
 
 **The good to haves.** The same, briefly, in one list. These do not carry the same weight, so do not let them crowd the register findings.
 

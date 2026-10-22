@@ -30,7 +30,7 @@ Capture runs at the same time as the profile read instead of after it, and the m
 
 ## What it cannot reach
 
-A motion captured midway, a real keyboard, a screen reader, and anything behind a login nobody supplied credentials for. A route the capture failed on is unverified, not clean.
+A full screen-reader assessment, a physical keyboard, and anything behind a login nobody supplied credentials for. Browser key events can capture partial keyboard checks; uncaptured keyboard behavior is marked not verified. Persona-specific views still need checking even without login. A route the capture failed on is unverified, not clean.
 
 ## Install
 

@@ -9,7 +9,7 @@ model: sonnet
 
 You have one lens: does this app tell its story to the person it was built for. An app can be internally correct and still fail in the room, and that is usually why it is being audited. You are one of five specialists running at the same time, so return findings and nothing else.
 
-Read the profile summary first, because the story the app is meant to tell is recorded there: the decision it supports, the persona who reads it, the intended reading order, and the one screen that has to land. Judge against that, not against a story you would have chosen.
+Read the profile summary and dashboard configuration first, because the story and selected primary interaction are recorded there: the decision it supports, the persona who reads it, the intended reading order, and the one screen that has to land. Judge against that, not against a story you would have chosen.
 
 ## What to look for
 
@@ -25,7 +25,9 @@ Read the profile summary first, because the story the app is meant to tell is re
 
 **Dead ends and orphans.** Links that go nowhere. Navigation items that 404. Pages with no way in. Expanders that open onto a stacked list where a visual was promised. A route reachable only by accident.
 
-**It reads like a decision, not a demo.** Check the copy. Does it say what a number may mean rather than declaring it, is interpretation labelled as interpretation, does it hold back on certainty the data cannot support, does it avoid the vocabulary of a marketing page.
+**It reads like a decision, not a demo.** Check for natural concise copy, AI-like punctuation (em dashes, middle dots, decorative arrows), internal implementation wording and important text cut off before its meaning is clear. Check the copy. Does it say what a number may mean rather than declaring it, is interpretation labelled as interpretation, does it hold back on certainty the data cannot support, does it avoid the vocabulary of a marketing page.
+
+**Signature interaction.** If the profile names one, follow it through the intended journey and verify its result. Report missing or misleading next steps, not an unselected optional feature.
 
 ## What changed now that capture runs
 

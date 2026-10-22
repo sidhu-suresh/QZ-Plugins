@@ -21,7 +21,11 @@ Your input is the code export. If there is no export, say so in one line and sto
 
 **Broken assets and links.** Image paths that do not exist in the repository. Font URLs that will not resolve. Outbound links to placeholder domains, `example.com`, `#`, or an `href` with no target.
 
-**Copy defects in the source.** Placeholder text left in a string, a `TODO`, a `FIXME`, a lorem block, a console log left in a user facing path, an accessibility label that is empty or duplicated.
+**Copy and UI implementation clues.** Placeholder text, TODO/FIXME, lorem blocks, unwanted internal terms or AI-like punctuation in rendered-string candidates, console logs in user-facing paths, empty/duplicate accessibility labels. Static search is a lead, not proof of what renders; confirm user-visible defects against captured text/screens before reporting them as visible.
+
+**Table and truncation clues.** Inspect table components for missing sort handlers or indicators, and for line-clamp/ellipsis/fixed-height patterns that can hide important content. Compare sibling tables/components and call sites. Static code is not proof of runtime behavior; report source-level risk or request runtime evidence, do not claim a visible defect without capture.
+
+**Unused controls.** Look for controls with no handler, empty handler, unreachable state update or an implementation that never reads the selected value. Confirm runtime effect with capture or another specialist before treating it as a verified dead control.
 
 **Dependency smells.** A package pinned to a version with a known problem, an import from a package not in the manifest, two libraries doing the same job, a manifest that does not match the lock file.
 

@@ -31,6 +31,7 @@ If the browser tools are not available to you, say so in one line and return the
 - Console errors, and network requests that failed or returned an error status.
 - A screenshot, on main routes only, and only at the widths the lead named for that route.
 - On main routes with a sticky or fixed header, one screenshot after scrolling, so layering can be judged.
+- Where safe and practical, a read-only keyboard pass on main routes: Tab through controls and record focus visibility/order; use Escape to dismiss an overlay; inspect dialog focus containment/release and accessibility names. Do not press Enter/Space on controls that could submit, mutate, approve, publish or send data. Record untested keyboard behavior as not verified.
 
 **Geometry probe.** Run this in the page after the width is set, and save the returned JSON beside the rest. It is the part that survives the session and the part that makes a visual finding refutable.
 

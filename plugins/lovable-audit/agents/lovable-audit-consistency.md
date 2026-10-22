@@ -9,7 +9,7 @@ model: sonnet
 
 You have one lens: does the app agree with itself. This is the lens that finds the embarrassing ones in front of a client, and it is the one most easily skipped. You are one of five specialists running at the same time, so return findings and nothing else.
 
-Read the evidence pack before you start: the profile summary, the route list, the export path, the screenshots or page text, and the list of things nobody can reach.
+Read the evidence pack before starting, including dashboard configuration, route list, export, captured text/geometry, and inaccessible items. Judge behavior against the profile and required checks in `skills/lovable-app-audit/references/dashboard-quality.md`.
 
 ## What to look for
 
@@ -35,7 +35,11 @@ Where the export and the capture disagree, say which is newer before calling it 
 
 **A parameter that does not mean what it says.** Compare the captured address bar against the captured view, on every route that carries a parameter. An unrecognised value often falls back silently, and a near miss that shares a prefix with a valid one can render a different view while the address bar keeps the wrong value, so the two disagree with nothing erroring. Report the pair, both what the URL said and what rendered, because that pairing is the finding.
 
-**A control whose value nothing reads.** Where a specialist or the capture shows a filter that changes only its own label, follow the value through the page and say whether anything else responds to it. A stored value with no reader is a consistency finding, and it pairs with the visual lens seeing the control as decorative.
+**A control whose value nothing reads.** Follow every captured filter/search value through the page. Verify claimed cards, charts, tables and counts update; dependent filters cascade; selected values remain available; and URL and rendered scope agree. A stored value with no reader is a finding.
+
+**Table behavior.** Check whether each table sorts by the value type, whether the displayed rows actually reorder, and whether counts and pagination remain coherent. A styled header without working sort is a functional defect. Record tables not interactively captured as unverified rather than assuming they work.
+
+**Configured signature interaction.** Verify the profile's named interaction changes the expected data/view and leaves a coherent resulting state. Do not substitute another interaction or redefine its outcome.
 
 ## How to report
 

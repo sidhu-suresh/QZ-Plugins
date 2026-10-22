@@ -8,7 +8,7 @@ One skill, `qz-decks`, for every Quantzig deck: storyline by deck type, clarifyi
 
 Source: `plugins/quantzig-decks/`
 
-## lovable-audit (v0.1.0)
+## lovable-audit (v0.2.0)
 
 Nine agents that audit a deployed Lovable app. A capture agent drives the browser for page text, layout geometry and screenshots while the app's requirements profile is still being read, five lens specialists then run at once (visual, consistency, story, scope, source hygiene) with an optional read-only security lens, findings are merged and identified, and verification is split across shards. The round ends as one paste-ready prompt per issue, with the QA pass fanned out one verifier per fix. It also carries what this kind of build actually does with a prompt, observed and measured, in `skills/lovable-app-audit/references/lovable-behaviour.md`.
 
@@ -42,4 +42,5 @@ For `lovable-audit`, the agents live under `plugins/lovable-audit/agents/` and t
 
 ### lovable-audit
 
+- 0.2.0: Adds per-app dashboard configuration, a required post-build quality checklist and Knowledge template; expands table/filter/copy/data/responsive/accessibility checks; improves keyboard evidence and persona checks without login.
 - 0.1.0: first release. Nine agents, browser capture sharded and running concurrently with the profile read, five lenses plus an optional read-only security lens, merged and identified findings, sharded adversarial verification, one paste-ready prompt per issue, and a fanned-out QA pass. Includes the observed builder behaviour reference.

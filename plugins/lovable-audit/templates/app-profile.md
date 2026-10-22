@@ -56,6 +56,19 @@ Last audited: <date>. Maintained by the audit agent. Rewrite stale lines, do not
 - Token file:
 - Locked to a client brand: yes / no
 
+## Dashboard configuration
+
+- Audience and density:
+- Theme:
+- Shell/navigation and scroll model:
+- Global controls and scope:
+- Visual treatments:
+- Microinteractions/components:
+- Chart families and business questions:
+- Signature interaction and acceptance check:
+- Explicitly excluded options:
+- Decision source / last confirmed:
+
 ## Architecture
 
 - Routes and purpose:
@@ -70,7 +83,8 @@ Last audited: <date>. Maintained by the audit agent. Rewrite stale lines, do not
 - Roles:
 - Where test credentials are kept (record the location, never the value):
 - What each role may do:
-- Role pass captured: yes / no / skipped, no login
+- Credentialed login pass: yes / no / not applicable
+- Persona/view pass: yes / no / not applicable
 
 ## Capture
 
